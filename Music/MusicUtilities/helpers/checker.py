@@ -6,22 +6,22 @@ def checker(mystic):
     async def wrapper(_, message):
         if message.sender_chat:
             return await message.reply_text(
-                "You're an __Anonymous Admin__ in this Chat Group!\nRevert back to User Account From Admin Rights."
+                "Sən bu qrupda anonim adminsən!\nAdmin icazələri alan hesaba qayıt."
             )
         blacklisted_chats_list = await blacklisted_chats()
         if message.chat.id in blacklisted_chats_list:
             await message.reply_text(
-                f"**Blacklisted Chat**\n\nYour chat has been blacklisted by Sudo Users.Ask any __SUDO USER__ to whitelist.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
+                f"**Blacklisted Chat**\n\nBu Qrup @HusuSovetski tərəfindən qara siyahıya alınıdı!.Qara siyahıdan çıxardılması üçün  __SUDO USER__ müraciət et.\nSahibin Listinə bax [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
             )
             return await app.leave_chat(message.chat.id)
         if await is_on_off(1):
             if int(message.chat.id) != int(LOG_GROUP_ID):
                 return await message.reply_text(
-                    f"Bot is under Maintenance. Sorry for the inconvenience!"
+                    f"Bot yoxlanışdadır. Narahatçılıq üçün üzr istəyirik!"
                 )
         if await is_gbanned_user(message.from_user.id):
             return await message.reply_text(
-                f"**Gbanned User**\n\nYou're gbanned from using Bot.Ask any __SUDO USER__ to ungban.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
+                f"**Gbanned User**\n\nSən bu bot üçün GBan-lanmısan.Müraciət et __SUDO USER__ UNGban edilməsi üçün.\nSahibin listinə bax [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
             )
         return await mystic(_, message)
 
@@ -38,7 +38,7 @@ def checkerCB(mystic):
         if await is_on_off(1):
             if int(CallbackQuery.message.chat.id) != int(LOG_GROUP_ID):
                 return await CallbackQuery.answer(
-                    "Bot is under Maintenance. Sorry for the inconvenience!",
+                    "Bot yoxlanışdadır. Narahatçılıq üçün üzr istəyirik!",
                     show_alert=True,
                 )
         if await is_gbanned_user(CallbackQuery.from_user.id):
