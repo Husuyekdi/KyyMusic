@@ -25,7 +25,7 @@ def AdminRightsCheck(mystic):
                     _check = await get_authuser_names(message.chat.id)
                     if token not in _check:
                         return await message.reply(
-                            "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\n\n__REQUIRES ADMIN WITH MANAGE VC RIGHTS__"
+                            "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\n\n__Səsli Söhbət İcazəsi Tələb Olunur__"
                         )
         return await mystic(_, message)
 
@@ -43,7 +43,7 @@ def AdminActual(mystic):
         )
         if not member.can_manage_voice_chats:
             return await message.reply(
-                "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\n\n__REQUIRES ADMIN WITH MANAGE VC RIGHTS__"
+                "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\n\n__Səsli Söhbət İcazəsi Tələb Olunur__"
             )
         return await mystic(_, message)
 
@@ -65,7 +65,7 @@ def AdminRightsCheckCB(mystic):
                     )
                     if token not in _check:
                         return await CallbackQuery.answer(
-                            "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\nPermission: MANAGE VOICE CHATS",
+                            "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\nİcazə: Səsli Söhbət İdarəsi",
                             show_alert=True,
                         )
         return await mystic(_, CallbackQuery)
@@ -80,7 +80,7 @@ def ActualAdminCB(mystic):
         )
         if not a.can_manage_voice_chats:
             return await CallbackQuery.answer(
-                "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\nPermission: MANAGE VOICE CHATS",
+                "Bu Əmri yerinə yetirmək üçün icazəniz yoxdur.\nİcazə: Səsli Söhbət İdarəsi",
                 show_alert=True,
             )
         return await mystic(_, CallbackQuery)
