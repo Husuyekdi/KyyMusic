@@ -11,7 +11,7 @@ def checker(mystic):
         blacklisted_chats_list = await blacklisted_chats()
         if message.chat.id in blacklisted_chats_list:
             await message.reply_text(
-                f"**Blacklisted Chat**\n\nBu Qrup @HusuSovetski tərəfindən qara siyahıya alınıdı!.Qara siyahıdan çıxardılması üçün  __SUDO USER__ müraciət et.\nSahibin Listinə bax [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
+                f"**Qara Siyahıya alınmış qrup**\n\nBu Qrup @HusuSovetski tərəfindən qara siyahıya alınıdı!.Qara siyahıdan çıxardılması üçün  __SUDO USER__ müraciət et.\nSahibin Listinə bax [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
             )
             return await app.leave_chat(message.chat.id)
         if await is_on_off(1):
