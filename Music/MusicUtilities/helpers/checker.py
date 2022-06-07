@@ -21,7 +21,7 @@ def checker(mystic):
                 )
         if await is_gbanned_user(message.from_user.id):
             return await message.reply_text(
-                f"**Gbanned User**\n\nSən bu bot üçün GBan-lanmısan.Müraciət et __SUDO USER__ UNGban edilməsi üçün.\nSahibin listinə bax [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
+                f"**GBan-lanmış user**\n\nSən bu bot üçün GBan-lanmısan.Müraciət et __SUDO USER__ UNGban edilməsi üçün.\nSahibin listinə bax [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
             )
         return await mystic(_, message)
 
