@@ -79,15 +79,15 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
             f3 = (afk[2])
             finxx = (f"{f1}{f2}{f3}")
             if str(finxx) != "raw":  
-                mystic = await app.send_message(chat_id, "Downloading Next Music From Playlist....")
+                mystic = await app.send_message(chat_id, "Yeni pleylistdəki musiqi yüklənir...")
                 url = (f"https://www.youtube.com/watch?v={afk}")
                 ctitle = (await app.get_chat(chat_id)).title
                 logger_text=f"""Playing Next From Playlist
 
-Group :- {chat_id}
-Title :- {ctitle}
+Qrup :- {chat_id}
+Başlıq :- {ctitle}
 
-Downloading....
+Yüklənir....
 
 {url}"""
                 okay = await app.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
@@ -95,7 +95,7 @@ Downloading....
                     with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
                         x = ytdl.extract_info(url, download=False)
                 except Exception as e:
-                    return await mystic.edit(f"Failed to download this video.\n\n**Reason**:{e}") 
+                    return await mystic.edit(f"Videonu yükləmək uğursuz oldu.\n\n**Reason**:{e}") 
                 
                 chat_title = ctitle                
                 videoid = afk
@@ -158,7 +158,7 @@ Downloading....
                 await app.send_photo(chat_id,
                 photo= thumb,
                 reply_markup=InlineKeyboardMarkup(buttons),    
-                caption=(f"🎥<b>__Started Playing:__ </b>[{title[:25]}]({url}) \n⏳<b>__Duration:__</b> {duration} Mins\n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {semx.mention}")
+                caption=(f"🎥<b>__Görüntü başlandı:__ </b>[{title[:25]}]({url}) \n⏳<b>__Müddət:__</b> {duration} Mins\n💡<b>__İnfo:__</b> [Ətraflı məlumat](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__İstiyən Şəxs:__** {semx.mention}")
             )   
                 os.remove(thumb)
             else:      
@@ -189,9 +189,9 @@ Downloading....
                 photo=f"downloads/{_chat_}final.png",
                 reply_markup=InlineKeyboardMarkup(buttons),
                 caption=f"""
-<b>▶️ Sekarang memutar:</b> {title}
-<b>⌚ Durasi:</b> {duration}
-<b>🎧 Atas permintaan:</b> {username}
+<b>▶️ Başlıq:</b> {title}
+<b>⌚ Müddət:</b> {duration}
+<b>🎧 Ad:</b> {username}
 """,
                 )
                 return
